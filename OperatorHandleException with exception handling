@@ -1,0 +1,39 @@
+public class OperatorHandleException implements Operator {
+    @Override
+    public double divide(int a, int b) {
+        try {
+            return a / (double) b;
+        } catch (ArithmeticException e) {
+            System.out.println(e.getMessage());
+            return a / 0.1;  // Handling divide by zero
+        }
+    }
+
+    @Override
+    public int getElement(int[] array, int index) {
+        try {
+            return array[index];
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println(e.getMessage());
+            return array[array.length - 1];  // Return last element on out of bounds
+        }
+    }
+
+    @Override
+    public int convertToInt(String str) {
+        try {
+            return Integer.parseInt(str);
+        } catch (NumberFormatException e) {
+            System.out.println("For input string: \"" + str + "\"");
+
+
+            StringBuilder result = new StringBuilder();
+            for (char c : str.toCharArray()) {
+                if (Character.isDigit(c)) {
+                    result.append(c);
+                }
+            }
+            return result.length() > 0 ? Integer.parseInt(result.toString()) : 0;
+        }
+    }
+}
