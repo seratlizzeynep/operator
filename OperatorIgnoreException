@@ -1,0 +1,16 @@
+public class OperatorIgnoreException implements Operator {
+    @Override
+    public double divide(int a, int b) {
+        return a / (double) b;
+    }
+
+    @Override
+    public int getElement(int[] array, int index) {
+        return array[index];
+    }
+
+    @Override
+    public int convertToInt(String str) {
+        return Integer.parseInt(str);
+    }
+}
