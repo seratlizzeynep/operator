@@ -1,0 +1,35 @@
+public class Tester {
+    public static void main(String[] args) {
+        int[] a = {1, 2, 3, 4, 5};
+
+        
+        Operator no_exp = new OperatorIgnoreException();
+        Operator with_exp = new OperatorHandleException();
+
+        
+        System.out.println("With Exception Handling");
+        System.out.println(with_exp.divide(5, 0));
+        System.out.println(with_exp.getElement(a, 7));
+        System.out.println(with_exp.convertToInt("123ab12"));
+
+        
+        System.out.println("\nWithout Exception Handling");
+        try {
+            System.out.println(no_exp.divide(5, 0));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            System.out.println(no_exp.getElement(a, 7));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            System.out.println(no_exp.convertToInt("123ab12"));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
