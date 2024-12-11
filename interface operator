@@ -1,0 +1,5 @@
+public interface Operator {
+    double divide(int a, int b);
+    int getElement(int[] array, int index);
+    int convertToInt(String str);
+}
